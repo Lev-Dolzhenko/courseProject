@@ -1,0 +1,88 @@
+.data-list {
+  border-radius: 30px;
+  background: rgb(255, 255, 255);
+
+  padding: 20px;
+
+  color: rgb(43, 54, 64);
+
+  margin-top: 40px;
+}
+
+.data-list_wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  column-gap: 14px;
+
+  padding-bottom: 20px;
+}
+
+.data-list__price {
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 110%;
+}
+
+.data-list__price-per {
+  color: rgb(123, 123, 123);
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 18px;
+}
+
+.data-list_left_wrapper {
+  display: flex;
+  align-items: center;
+  column-gap: 20px;
+}
+
+.data-list__street {
+  color: rgb(43, 54, 64);
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 120%;
+
+  margin-top: 10px;
+}
+
+.data-list_right {
+  display: flex;
+  align-items: center;
+  column-gap: 50px;
+}
+
+.data-list__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  row-gap: 10px;
+}
+
+.data-list__span_muted {
+  color: rgb(123, 123, 123);
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 18px;
+}
+
+.data-list__span_active {
+  color: rgb(43, 54, 64);
+  font-size: 24px;
+  font-weight: 550;
+  line-height: 110%;
+}
+.data-list_bottom {
+  color: rgb(123, 123, 123);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 14px;
+
+  display: flex;
+  align-items: center;
+  justify-content: end;
+
+  padding-top: 20px;
+  border-top: 1px solid rgba(222, 156, 142, 0.2);
+}

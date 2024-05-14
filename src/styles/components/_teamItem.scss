@@ -1,0 +1,63 @@
+.team__wrapper {
+  border-radius: 20px;
+  background: rgb(255, 255, 255);
+
+  max-width: 250px;
+
+  padding: 10px;
+
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+}
+
+.team__image {
+  img {
+    border-radius: 15px;
+  }
+}
+
+.team__name {
+  color: rgb(43, 54, 64);
+  font-size: 18px;
+  font-weight: 550;
+  line-height: 110%;
+}
+
+.team__number {
+  color: rgb(98, 98, 98);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 14px;
+}
+
+.team__button {
+  button {
+    border-radius: 12px;
+    background: rgb(222, 156, 142);
+    border: 1px solid $colorWhite;
+
+    color: rgb(255, 255, 255);
+    font-size: 16px;
+    font-weight: 550;
+    line-height: 100%;
+
+    width: 100%;
+
+    padding: 12px 0;
+
+    transition: all 0.2s linear;
+
+    &:hover {
+      background: $colorWhite;
+      color: rgb(222, 156, 142);
+      border: 1px solid rgb(222, 156, 142);
+    }
+  }
+}
+
+.swiper-slide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

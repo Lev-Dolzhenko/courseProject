@@ -1,0 +1,78 @@
+body {
+  font-family: "HelveticaNeueCyr";
+  font-size: 16px;
+  // background-color: $colorMainBg;
+  overflow-x: hidden !important;
+  background: rgb(43, 54, 64);
+  color: $colorWhite;
+}
+
+a {
+  transition: color 0.2s linear;
+
+  &:hover {
+    // color: $fff;
+  }
+}
+
+.none {
+  display: none !important;
+}
+
+.container {
+  max-width: 1200px;
+  padding: 0 20px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.title1 {
+  font-size: 60px;
+  font-weight: 700;
+  line-height: 110%;
+}
+
+.title2 {
+  font-size: 60px;
+  font-weight: 550;
+  line-height: 110%;
+}
+
+.title3 {
+  color: rgb(48, 50, 52);
+  font-size: 30px;
+  font-weight: 550;
+  line-height: 110%;
+
+  &_about {
+    color: rgb(43, 54, 64);
+    font-size: 32px;
+    font-weight: 550;
+    line-height: 110%;
+  }
+
+  &_call {
+    color: rgb(43, 54, 64);
+    font-size: 40px;
+    font-weight: 550;
+    line-height: 54px;
+  }
+
+  &_data {
+    color: $colorWhite;
+  }
+}
+
+.title5 {
+  color: rgb(43, 54, 64);
+  font-size: 15px;
+  font-weight: 550;
+  line-height: 110%;
+
+  &_programs {
+    color: rgb(48, 50, 52);
+    font-size: 18px;
+    font-weight: 550;
+    line-height: 110%;
+  }
+}
