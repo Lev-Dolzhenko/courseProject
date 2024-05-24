@@ -1,0 +1,18 @@
+.ads {
+}
+
+.ads__title {
+  margin: 60px 0;
+}
+
+.abs__list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+@media screen and (max-width: 1000px) {
+  .abs__list {
+    grid-template-columns: 1fr;
+  }
+}

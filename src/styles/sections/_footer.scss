@@ -109,3 +109,16 @@
     color: $colorWhite;
   }
 }
+
+@media screen and (max-width: 900px) {
+  .footer__row {
+    flex-direction: column;
+    row-gap: 20px;
+  }
+}
+
+@media screen and (max-width: 730px) {
+  .footer__wrapper {
+    flex-direction: column;
+  }
+}

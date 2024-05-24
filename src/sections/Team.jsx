@@ -21,8 +21,22 @@ const Team = () => {
         </div>
         <Swiper
           loop={true}
-          slidesPerView={4}
           classNameName="swiper mySwiper mySwiper-team"
+          spaceBetween={20}
+          breakpoints={{
+            320: {
+              slidesPerView: 1,
+            },
+            480: {
+              slidesPerView: 2,
+            },
+            720: {
+              slidesPerView: 3,
+            },
+            1000: {
+              slidesPerView: 4,
+            },
+          }}
         >
           <SwiperSlide>
             <TeamItem

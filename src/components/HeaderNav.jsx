@@ -22,10 +22,12 @@ const HeaderNav = ({ isWrap = false }) => {
               <span className="header__row_number"> +1 234 567-89-00 </span>
             </div>
             <div className="header__row_button">
-              <button>
-                <img src={heartIcon} alt="heartIcon" />
-                Избранное
-              </button>
+              <Link to="/favourites">
+                <button>
+                  <img src={heartIcon} alt="heartIcon" />
+                  Избранное
+                </button>
+              </Link>
             </div>
           </div>
         </div>
@@ -41,10 +43,12 @@ const HeaderNav = ({ isWrap = false }) => {
             <span className="header__row_number"> +1 234 567-89-00 </span>
           </div>
           <div className="header__row_button">
-            <button>
-              <img src={heartIcon} alt="heartIcon" />
-              Избранное
-            </button>
+            <Link to="/favourites">
+              <button>
+                <img src={heartIcon} alt="heartIcon" />
+                Избранное
+              </button>
+            </Link>
           </div>
         </div>
       )}

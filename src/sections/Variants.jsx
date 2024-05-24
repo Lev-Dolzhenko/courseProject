@@ -58,7 +58,7 @@ const Variants = () => {
             />
           </Link>
           <div className="variant__item-cover">
-            <Link to="/infoPage">
+            <Link to="/catalog">
               <img
                 className="variannt__item_image-cover"
                 src={cardImageCover}

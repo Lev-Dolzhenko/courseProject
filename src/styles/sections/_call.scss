@@ -73,3 +73,33 @@
 
   z-index: -1;
 }
+
+@include mediaTablet {
+  .call__wrapper_bg {
+    display: none;
+  }
+
+  .title3_call {
+    color: white !important;
+  }
+
+  .call__subtitle {
+    color: white !important;
+  }
+
+  .call__form {
+    button {
+      background: rgb(222, 156, 142);
+
+      color: rgb(43, 54, 64);
+    }
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .call__form {
+    flex-direction: column;
+    width: 100%;
+    row-gap: 10px;
+  }
+}

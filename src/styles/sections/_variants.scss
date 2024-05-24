@@ -68,3 +68,21 @@
     content: url(/src/images/arrowVar.svg);
   }
 }
+
+@include mediaTablet {
+  .variants__row {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@include mediaSemiTablet {
+  .variants__row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .variants__row {
+    grid-template-columns: 1fr;
+  }
+}

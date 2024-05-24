@@ -10,7 +10,7 @@
 .header__row_numbers {
   margin-right: auto;
 
-  font-size: 22px;
+  font-size: clamp(16px, 0.864rem + 0.68vw, 22px);
   font-weight: 400;
   line-height: 110%;
 }
@@ -36,5 +36,27 @@
     &:hover {
       transform: scale(1.05);
     }
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .header__row {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    row-gap: 20px;
+  }
+
+  .header__row_button {
+    margin-right: unset;
+  }
+
+  .header__row_logotype {
+    margin-right: unset;
+  }
+
+  .header__row_numbers {
+    margin-right: unset;
   }
 }

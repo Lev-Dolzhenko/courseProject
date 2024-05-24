@@ -17,10 +17,10 @@
   align-items: center;
   justify-content: center;
 
-  margin-top: 120px;
+  margin-top: clamp(40px, 0.682rem + 9.09vw, 120px);
 
   &_calculator {
-    margin-top: 160px;
+    margin-top: clamp(40px, -0.227rem + 13.64vw, 160px);
   }
 }
 .header__title {
@@ -28,7 +28,7 @@
 }
 
 .header__subtitle {
-  font-size: 24px;
+  font-size: clamp(20px, 1.159rem + 0.45vw, 24px);
   font-weight: 500;
   line-height: 110%;
 }
@@ -38,7 +38,7 @@
   padding: 20px;
   width: 100%;
 
-  margin-top: 60px;
+  margin-top: clamp(25px, 0.767rem + 3.98vw, 60px);
 
   background: $colorWhite;
 
@@ -111,6 +111,27 @@
     &:hover {
       background: rgb(255, 255, 255);
       color: rgb(222, 156, 142);
+    }
+  }
+}
+
+@include mediaTablet {
+  .header__search {
+    grid-template-columns: 1fr;
+    row-gap: 20px;
+  }
+
+  .header__title {
+    text-align: center;
+  }
+
+  .header__subtitle {
+    text-align: center;
+  }
+
+  .header__search_button {
+    button {
+      padding: 10px;
     }
   }
 }

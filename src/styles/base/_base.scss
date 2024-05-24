@@ -27,13 +27,13 @@ a {
 }
 
 .title1 {
-  font-size: 60px;
+  font-size: clamp(30px, 1.193rem + 3.41vw, 60px);
   font-weight: 700;
   line-height: 110%;
 }
 
 .title2 {
-  font-size: 60px;
+  font-size: clamp(30px, 1.193rem + 3.41vw, 60px);
   font-weight: 550;
   line-height: 110%;
 }
@@ -46,7 +46,7 @@ a {
 
   &_about {
     color: rgb(43, 54, 64);
-    font-size: 32px;
+    font-size: clamp(28px, 1.659rem + 0.45vw, 32px);
     font-weight: 550;
     line-height: 110%;
   }

@@ -158,3 +158,9 @@
 
   z-index: 1;
 }
+
+@include mediaTablet {
+  .programs {
+    display: none;
+  }
+}

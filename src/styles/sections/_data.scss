@@ -250,3 +250,28 @@
     }
   }
 }
+
+.data-list_wrapper {
+  flex-wrap: wrap;
+  column-gap: 20px;
+  row-gap: 20px;
+}
+
+@include mediaTablet {
+  .data__wrapper {
+    grid-template-columns: unset;
+    row-gap: 20px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .data-list_left_wrapper {
+    flex-direction: column;
+  }
+
+  .data-list_right {
+    flex-direction: column;
+    row-gap: 10px;
+    margin: 0 auto;
+  }
+}

@@ -1,6 +1,8 @@
 //pages
 import ScrollToTop from "./components/ScrollToTop";
 import CalculatorPage from "./pages/CalculatorPage";
+import Catalog from "./pages/Catalog";
+import Favourites from "./pages/Favourites";
 import InfoPage from "./pages/InfoPage";
 import MainPage from "./pages/MainPage";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -14,6 +16,8 @@ function App() {
           <Route path="/" element={<MainPage />} />
           <Route path="/calculatorPage" element={<CalculatorPage />} />
           <Route path="/infoPage" element={<InfoPage />} />
+          <Route path="/catalog" element={<Catalog />} />
+          <Route path="/favourites" element={<Favourites />} />
         </Routes>
       </BrowserRouter>
     </>

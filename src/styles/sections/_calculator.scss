@@ -13,6 +13,8 @@
   padding: 20px;
 
   margin-bottom: 45px;
+
+  margin-top: 30px;
 }
 .calculator__row_item {
   span {
@@ -82,7 +84,7 @@
     padding: 18px 0;
 
     font-family: $roboto;
-    font-size: 20px;
+    font-size: clamp(12px, 0.568rem + 0.91vw, 20px);
     font-weight: 400;
     line-height: 100%;
 
@@ -135,4 +137,18 @@
   padding-top: 20px;
 }
 .calculator__info_price {
+}
+
+
+@include mediaTablet {
+  .calculator__row {
+    grid-template-columns: 1fr;
+    row-gap: 20px;
+  }
+
+  .calculator__row_item {
+    span {
+      margin-right: 10px;
+    }
+  }
 }

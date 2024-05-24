@@ -1,0 +1,140 @@
+.abs__item {
+  position: relative;
+
+  background-color: $colorWhite;
+  padding: 20px;
+  border-radius: 20px;
+
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  column-gap: 20px;
+
+  color: #2b3640;
+
+  strong {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 110%;
+  }
+
+  span {
+    color: rgb(98, 98, 98);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 14px;
+  }
+}
+
+.abs__image {
+  img {
+    border-radius: 12px;
+  }
+}
+
+.abs__text {
+}
+
+.abs__text_name {
+  margin-bottom: 5px;
+}
+
+.abs__text_price {
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
+
+  margin-bottom: 10px;
+}
+
+.abs__text_info {
+  margin-bottom: 5px;
+}
+
+.abs__text_street {
+  margin-bottom: 10px;
+}
+
+.abs__text_rieltor {
+  display: grid;
+  grid-template-columns: 40px auto;
+  grid-template-rows: repeat(2, 1fr);
+  column-gap: 10px;
+  align-items: center;
+
+  strong {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 14px;
+
+    margin-bottom: 5px;
+  }
+
+  span {
+    color: rgb(98, 98, 98);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 14px;
+  }
+}
+
+.abs__text_rieltor-logotype {
+  grid-row: span 2;
+
+  border-radius: 50%;
+
+  height: 40px;
+  width: 40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  background: rgba(255, 191, 169, 0.2);
+}
+
+.abs__button_like {
+  position: absolute;
+
+  right: 20px;
+  top: 20px;
+
+  height: 25px;
+  width: 25px;
+
+  z-index: 10;
+}
+
+.abs__button_check {
+  box-sizing: border-box;
+  border: 1px solid rgb(255, 167, 149);
+  border-radius: 8px;
+  color: rgb(255, 167, 149);
+  font-size: 10px;
+  font-weight: 400;
+  line-height: 10px;
+  padding: 10px 8px;
+  transition: all 0.2s linear;
+
+  width: 100%;
+
+  margin-top: 25px;
+
+  &:hover {
+    color: $colorWhite;
+    background-color: rgb(255, 167, 149);
+  }
+}
+
+@media screen and (max-width: 580px) {
+  .abs__item {
+    grid-template-columns: 1fr;
+    row-gap: 20px;
+  }
+
+  .abs__image {
+    img {
+      width: 100%;
+    }
+  }
+}

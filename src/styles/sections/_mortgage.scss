@@ -72,3 +72,10 @@
     }
   }
 }
+
+@include mediaTablet {
+  .mortgage__row {
+    grid-template-columns: 1fr;
+    row-gap: 20px;
+  }
+}
