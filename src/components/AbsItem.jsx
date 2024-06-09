@@ -5,33 +5,35 @@ import React from "react";
 import absItemImg from "../images/absItem.jpeg";
 import logoCompany from "../images/rieltorLogo.svg";
 import heartIcon from "../images/heartIcon.svg";
+import {useNavigate} from "react-router-dom";
 
-const AbsItem = () => {
+const AbsItem = ({id, title, price, ppm, rooms, size_m, floor, max_floor, address, realtor_name}) => {
+  const navigate = useNavigate();
   return (
     <div className="abs__item">
       <div className="abs__image">
         <img src={absItemImg} alt="absItemImg" />
       </div>
       <div className="abs__text">
-        <h3 className="abs__text_name">Atlant</h3>
+        <h3 className="abs__text_name">{title}</h3>
         <div className="abs__text_price">
-          <strong>40 000 000 ₸</strong>
-          <span>766 000 ₸/м²</span>
+          <strong>{price} ₸</strong>
+          <span>{ppm} ₸/м²</span>
         </div>
         <div className="abs__text_info">
-          <strong>2 ком., 48 м², 6 этаж из 8</strong>
+          <strong>{rooms} ком., {size_m} м², {floor} этаж из {max_floor}</strong>
         </div>
         <div className="abs__text_street">
-          <span>Есильский район, ул. Сарайшык, 4</span>
+          <span>{address}</span>
         </div>
         <div className="abs__text_rieltor">
           <div className="abs__text_rieltor-logotype">
             <img src={logoCompany} alt="logoCompany" />
           </div>
-          <strong>Арманов Арман Арманович</strong>
+          <strong>{realtor_name}</strong>
           <span>Риелтор</span>
         </div>
-        <button className="abs__button_check">Просмотреть</button>
+        <button className="abs__button_check" onClick={() => navigate("/flats/"+id)}>Просмотреть</button>
       </div>
       <button className="abs__button_like">
         <svg

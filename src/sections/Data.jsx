@@ -1,34 +1,49 @@
-import React, { useState } from "react";
+import {useEffect, useState} from "react";
 
-//images
-import imageCard from "../images/imageCardCover.jpeg";
 import companyLogotype from "../images/companyLogotype.svg";
-import telegrammIcon from "../images/telegrammIcon.svg";
-import whatsappIcon from "../images/whatsappIcon.svg";
 import DataList from "../components/DataList";
+import axios from "axios";
 
-const Data = ({}) => {
+const Data = () => {
   const [isShowNum, setIsShowNum] = useState(false);
+  const [currentFlat, setCurrentFlat] = useState(false);
+
+  useEffect(() => {
+
+    const getCurrentFlat = async (id) => {
+      return axios.get("http://176.113.81.99/api/flats/"+id).then((resp) => resp.data).catch((err) => console.log(err));
+    }
+
+
+    const url = window.location.href;
+    const flatID = url.split("/").pop();
+    getCurrentFlat(flatID)
+        .then((resp) => {
+          setCurrentFlat(resp)
+        })
+        .catch((err) => console.log(err));
+
+  }, [])
+
+  console.log(currentFlat)
+
   return (
     <section className="data">
       <div className="container">
         <div className="data__title">
           <h3 className="title3 title3_data">
-            Продажа 2-комнатной квартиры в ЖК Atlant, 48.2 м², г. Нур-Султан,
-            Есильский район, ул. Сарайшык
+            {"Продажа "+ currentFlat?.rooms +"-комнатной квартиры в "+ currentFlat?.complex?.complex_name +", "+ currentFlat?.size_m +" м², г. "+ currentFlat?.complex?.address}
           </h3>
         </div>
         <div className="data__wrapper">
           <div className="data__wrapper_images">
-            <div className="data__wrapper_image">
-              <img src={imageCard} alt="" />
-            </div>
-            <div className="data__wrapper_image">
-              <img src={imageCard} alt="" />
-            </div>
-            <div className="data__wrapper_image">
-              <img src={imageCard} alt="" />
-            </div>
+            {
+              currentFlat?.photos?.map((photo, index) => (
+                  <div key={index} className="data__wrapper_image">
+                    <img src={"http://176.113.81.99/assets/"+photo} alt=""/>
+                  </div>
+              ))
+            }
           </div>
           <div className="data__info">
             <div className="data__info_top">
@@ -39,13 +54,13 @@ const Data = ({}) => {
 
                 <div className="data__info_person">
                   <span className="data__info_person-name">
-                    Арманов Арман Арманович
+                    {currentFlat?.complex?.realtor_name}
                   </span>
                   <span className="data__info_person-post">Риелтор</span>
                 </div>
               </div>
               <div className={`data__info_number ${isShowNum ? "" : "none"}`}>
-                <span>+7 (777) 231-21-32</span>
+                <span>{currentFlat?.complex?.realtor_phone}</span>
               </div>
               <div className={`data__info_number ${isShowNum ? "none" : ""}`}>
                 <span>+7 (777)</span>
@@ -176,7 +191,16 @@ const Data = ({}) => {
             </div>
           </div>
         </div>
-        <DataList />
+        <DataList
+            id={currentFlat?.id}
+            price={currentFlat?.price}
+            ppm={currentFlat?.ppm}
+            rooms={currentFlat?.rooms}
+            floor={currentFlat?.floor}
+            maxFloor={currentFlat?.complex?.max_floor}
+            size_m={currentFlat?.size_m}
+            address={currentFlat?.complex?.address}
+        />
       </div>
     </section>
   );

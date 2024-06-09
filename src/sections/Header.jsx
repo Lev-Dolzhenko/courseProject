@@ -68,7 +68,7 @@ const Header = ({ isForm = true }) => {
                       Цена
                     </span>
                     <span className="header__search_input-answer">
-                      от 30 000 000 ₸
+                      от 30 000 000₽
                     </span>
                   </div>
                   <div className="header__search_input_arrow">

@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 
 //components
 import TeamItem from "../components/TeamItem";
@@ -11,8 +11,25 @@ import { Swiper, SwiperSlide } from "swiper/react";
 
 // Import Swiper styles
 import "swiper/css";
+import axios from "axios";
 
 const Team = () => {
+   const [currentTeamList, setCurrentTeamList] = React.useState([]);
+
+   useEffect(() => {
+
+       const getAllEmployees = async () => {
+           return axios.get("http://176.113.81.99/api/employees/all").then((resp) => resp.data).catch((err) => console.log(err));
+       }
+
+       getAllEmployees()
+           .then((resp) => {
+               setCurrentTeamList(resp)
+           })
+           .catch((err) => console.log(err));
+
+   }, [])
+
   return (
     <section className="team">
       <div className="container">
@@ -38,42 +55,17 @@ const Team = () => {
             },
           }}
         >
-          <SwiperSlide>
-            <TeamItem
-              name={"Арман Арманович"}
-              number={"+123456789"}
-              image={imagePerson}
-            />
-          </SwiperSlide>
-          <SwiperSlide>
-            <TeamItem
-              name={"Арман Арманович"}
-              number={"+123456789"}
-              image={imagePerson}
-            />
-          </SwiperSlide>
-          <SwiperSlide>
-            <TeamItem
-              name={"Арман Арманович"}
-              number={"+123456789"}
-              image={imagePerson}
-            />
-          </SwiperSlide>
-
-          <SwiperSlide>
-            <TeamItem
-              name={"Арман Арманович"}
-              number={"+123456789"}
-              image={imagePerson}
-            />
-          </SwiperSlide>
-          <SwiperSlide>
-            <TeamItem
-              name={"Арман Арманович"}
-              number={"+123456789"}
-              image={imagePerson}
-            />
-          </SwiperSlide>
+            {
+                currentTeamList?.map((employee) => (
+                    <SwiperSlide>
+                        <TeamItem
+                            name={employee?.name}
+                            number={employee?.phone}
+                            image={"http://176.113.81.99/assets/"+employee?.photo_url}
+                        />
+                    </SwiperSlide>
+                ))
+            }
         </Swiper>
       </div>
     </section>
