@@ -14,8 +14,8 @@ function App() {
         <ScrollToTop />
         <Routes>
           <Route path="/" element={<MainPage />} />
+          <Route path="/flats/:id" element={<InfoPage />} />
           <Route path="/calculatorPage" element={<CalculatorPage />} />
-          <Route path="/infoPage" element={<InfoPage />} />
           <Route path="/catalog" element={<Catalog />} />
           <Route path="/favourites" element={<Favourites />} />
         </Routes>

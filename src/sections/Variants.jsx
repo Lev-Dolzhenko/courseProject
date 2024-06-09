@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 
 //components
 import VariantsItem from "../components/VariantsItem";
@@ -7,9 +7,24 @@ import VariantsItem from "../components/VariantsItem";
 import cardImage from "../images/imageCard.jpeg";
 import cardImageCover from "../images/imageCardCover.jpeg";
 
-import { Link } from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
+import axios from "axios";
 
 const Variants = () => {
+  const [compelexesFlats, setCompexesFlats] = React.useState([]);
+  const naviagte = useNavigate();
+
+  useEffect(() => {
+    const getAllFlats = async () => {
+      return axios.get("http://176.113.81.99/api/flats").then((resp) => resp.data).catch((err) => console.log(err));
+    }
+
+    getAllFlats()
+        .then((resp) => {
+          setCompexesFlats(resp);
+        })
+  }, [])
+
   return (
     <section className="variants">
       <div className="container">
@@ -17,47 +32,19 @@ const Variants = () => {
           <h2 className="title2 title2_variants">Лучшие варианты</h2>
         </div>
         <div className="variants__row">
-          <Link to="/infoPage">
-            <VariantsItem
-              title={"ЖК “Атланта”"}
-              desc={"2-комнатная квартира, 51.8 м², Орынбор 10"}
-              price={"40 млн ₸"}
-              img={cardImage}
-            />
-          </Link>
-          <Link to="/infoPage">
-            <VariantsItem
-              title={"ЖК “Атланта”"}
-              desc={"2-комнатная квартира, 51.8 м², Орынбор 10"}
-              price={"40 млн ₸"}
-              img={cardImage}
-            />
-          </Link>
-          <Link to="/infoPage">
-            <VariantsItem
-              title={"ЖК “Атланта”"}
-              desc={"2-комнатная квартира, 51.8 м², Орынбор 10"}
-              price={"40 млн ₸"}
-              img={cardImage}
-            />
-          </Link>
-          <Link to="/infoPage">
-            <VariantsItem
-              title={"ЖК “Атланта”"}
-              desc={"2-комнатная квартира, 51.8 м², Орынбор 10"}
-              price={"40 млн ₸"}
-              img={cardImage}
-            />
-          </Link>
-          <Link to="/infoPage">
-            <VariantsItem
-              title={"ЖК “Атланта”"}
-              desc={"2-комнатная квартира, 51.8 м², Орынбор 10"}
-              price={"40 млн ₸"}
-              img={cardImage}
-            />
-          </Link>
-          <div className="variant__item-cover">
+          {
+            compelexesFlats?.map((flat) => (
+                <Link to={"/flats/"+flat?.id} key={flat?.id}>
+                  <VariantsItem
+                      title={flat?.complex_name}
+                      desc={flat?.rooms+"-комнатная квартира"+ flat?.size_m +"м² "+flat?.address}
+                      price={flat?.price+" млн ₽"}
+                      img={cardImage}
+                  />
+                </Link>
+            ))
+          }
+          <div className="variant__item-cover" onClick={() => naviagte("/catalog")}>
             <Link to="/catalog">
               <img
                 className="variannt__item_image-cover"
