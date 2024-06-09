@@ -15,12 +15,16 @@
   line-height: 110%;
 }
 .header__row_button {
+  display: flex;
+  column-gap: 10px;
   button {
     display: flex;
     align-items: center;
     justify-content: center;
 
     column-gap: 10px;
+
+    height: 100%;
 
     padding: 12px;
 
@@ -58,5 +62,15 @@
 
   .header__row_numbers {
     margin-right: unset;
+  }
+}
+
+@media screen and (max-width: 530px) {
+  .header__row_button {
+    flex-direction: column;
+    row-gap: 10px;
+    button {
+      width: 100%;
+    };
   }
 }

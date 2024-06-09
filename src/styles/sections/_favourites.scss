@@ -11,9 +11,28 @@
   gap: 20px;
 }
 
+.person__wrapper {
+  margin-top: 30px;
+}
+
+.person__title {
+  margin-bottom: 30px;
+}
+
+.person__info {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  row-gap: 10px;
+}
+
+.person__info--block {
+  span {
+    color: rgb(222, 156, 142);
+  }
+}
+
 @media screen and (max-width: 1000px) {
   .favourites__list {
     grid-template-columns: 1fr;
   }
 }
-

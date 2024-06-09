@@ -1,4 +1,4 @@
-import {useEffect, useState} from "react";
+import { useEffect, useState } from "react";
 
 import companyLogotype from "../images/companyLogotype.svg";
 import DataList from "../components/DataList";
@@ -9,41 +9,50 @@ const Data = () => {
   const [currentFlat, setCurrentFlat] = useState(false);
 
   useEffect(() => {
-
     const getCurrentFlat = async (id) => {
-      return axios.get("http://176.113.81.99/api/flats/"+id).then((resp) => resp.data).catch((err) => console.log(err));
-    }
-
+      return axios
+        .get("http://176.113.81.99/api/flats/" + id)
+        .then((resp) => resp.data)
+        .catch((err) => console.log(err));
+    };
 
     const url = window.location.href;
     const flatID = url.split("/").pop();
     getCurrentFlat(flatID)
-        .then((resp) => {
-          setCurrentFlat(resp)
-        })
-        .catch((err) => console.log(err));
+      .then((resp) => {
+        setCurrentFlat(resp);
+      })
+      .catch((err) => console.log(err));
+  }, []);
 
-  }, [])
+  console.log(currentFlat);
 
-  console.log(currentFlat)
+  const handleFavouritse = (flat) => {
+    console.log(flat);
+  };
 
   return (
     <section className="data">
       <div className="container">
         <div className="data__title">
           <h3 className="title3 title3_data">
-            {"Продажа "+ currentFlat?.rooms +"-комнатной квартиры в "+ currentFlat?.complex?.complex_name +", "+ currentFlat?.size_m +" м², г. "+ currentFlat?.complex?.address}
+            {"Продажа " +
+              currentFlat?.rooms +
+              "-комнатной квартиры в " +
+              currentFlat?.complex?.complex_name +
+              ", " +
+              currentFlat?.size_m +
+              " м², г. " +
+              currentFlat?.complex?.address}
           </h3>
         </div>
         <div className="data__wrapper">
           <div className="data__wrapper_images">
-            {
-              currentFlat?.photos?.map((photo, index) => (
-                  <div key={index} className="data__wrapper_image">
-                    <img src={"http://176.113.81.99/assets/"+photo} alt=""/>
-                  </div>
-              ))
-            }
+            {currentFlat?.photos?.map((photo, index) => (
+              <div key={index} className="data__wrapper_image">
+                <img src={"http://176.113.81.99/assets/" + photo} alt="" />
+              </div>
+            ))}
           </div>
           <div className="data__info">
             <div className="data__info_top">
@@ -187,19 +196,21 @@ const Data = () => {
               </div>
             </div>
             <div className="data__info_bottom">
-              <button>Подобрать ипотеку</button>
+              <button onClick={handleFavouritse(currentFlat)}>
+                Добавить в избранное
+              </button>
             </div>
           </div>
         </div>
         <DataList
-            id={currentFlat?.id}
-            price={currentFlat?.price}
-            ppm={currentFlat?.ppm}
-            rooms={currentFlat?.rooms}
-            floor={currentFlat?.floor}
-            maxFloor={currentFlat?.complex?.max_floor}
-            size_m={currentFlat?.size_m}
-            address={currentFlat?.complex?.address}
+          id={currentFlat?.id}
+          price={currentFlat?.price}
+          ppm={currentFlat?.ppm}
+          rooms={currentFlat?.rooms}
+          floor={currentFlat?.floor}
+          maxFloor={currentFlat?.complex?.max_floor}
+          size_m={currentFlat?.size_m}
+          address={currentFlat?.complex?.address}
         />
       </div>
     </section>

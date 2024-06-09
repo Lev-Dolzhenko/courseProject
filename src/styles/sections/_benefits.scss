@@ -16,3 +16,9 @@
     row-gap: 20px;
   }
 }
+
+@media screen and (max-width: 900px) {
+  .benefits {
+    display: none;
+  }
+}

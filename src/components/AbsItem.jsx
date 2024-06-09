@@ -5,9 +5,20 @@ import React from "react";
 import absItemImg from "../images/absItem.jpeg";
 import logoCompany from "../images/rieltorLogo.svg";
 import heartIcon from "../images/heartIcon.svg";
-import {useNavigate} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
-const AbsItem = ({id, title, price, ppm, rooms, size_m, floor, max_floor, address, realtor_name}) => {
+const AbsItem = ({
+  id,
+  title,
+  price,
+  ppm,
+  rooms,
+  size_m,
+  floor,
+  max_floor,
+  address,
+  realtor_name,
+}) => {
   const navigate = useNavigate();
   return (
     <div className="abs__item">
@@ -17,11 +28,13 @@ const AbsItem = ({id, title, price, ppm, rooms, size_m, floor, max_floor, addres
       <div className="abs__text">
         <h3 className="abs__text_name">{title}</h3>
         <div className="abs__text_price">
-          <strong>{price} ₸</strong>
-          <span>{ppm} ₸/м²</span>
+          <strong>{price} ₽</strong>
+          <span>{ppm} ₽/м²</span>
         </div>
         <div className="abs__text_info">
-          <strong>{rooms} ком., {size_m} м², {floor} этаж из {max_floor}</strong>
+          <strong>
+            {rooms} ком., {size_m} м², {floor} этаж из {max_floor}
+          </strong>
         </div>
         <div className="abs__text_street">
           <span>{address}</span>
@@ -33,9 +46,14 @@ const AbsItem = ({id, title, price, ppm, rooms, size_m, floor, max_floor, addres
           <strong>{realtor_name}</strong>
           <span>Риелтор</span>
         </div>
-        <button className="abs__button_check" onClick={() => navigate("/flats/"+id)}>Просмотреть</button>
+        <button
+          className="abs__button_check"
+          onClick={() => navigate("/flats/" + id)}
+        >
+          Просмотреть
+        </button>
       </div>
-      <button className="abs__button_like">
+      {/* <button className="abs__button_like">
         <svg
           width="36.000000"
           height="36.000000"
@@ -61,7 +79,7 @@ const AbsItem = ({id, title, price, ppm, rooms, size_m, floor, max_floor, addres
             stroke-linejoin="round"
           />
         </svg>
-      </button>
+      </button> */}
     </div>
   );
 };

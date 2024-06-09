@@ -11,7 +11,8 @@ import { Swiper, SwiperSlide } from "swiper/react";
 
 // Import Swiper styles
 import "swiper/css";
-import axios from "axios";
+
+import axios from 'axios'
 
 const Team = () => {
    const [currentTeamList, setCurrentTeamList] = React.useState([]);

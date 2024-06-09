@@ -28,6 +28,12 @@ const HeaderNav = ({ isWrap = false }) => {
                   Избранное
                 </button>
               </Link>
+              <Link to="/registration">
+                <button>Регистрация</button>
+              </Link>
+              <Link to="/authorization">
+                <button>Вход</button>
+              </Link>
             </div>
           </div>
         </div>
@@ -48,6 +54,12 @@ const HeaderNav = ({ isWrap = false }) => {
                 <img src={heartIcon} alt="heartIcon" />
                 Избранное
               </button>
+            </Link>
+            <Link to="/registration">
+              <button>Регистрация</button>
+            </Link>
+            <Link to="/authorization">
+              <button>Вход</button>
             </Link>
           </div>
         </div>

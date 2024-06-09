@@ -18,8 +18,8 @@ const Footer = () => {
           <div className="footer__row_info">
             <img src={logotype} alt="logotype" />
             <p>
-              Lorem ipsum dolor amet, consectetur adipiscing elit. Eget nisl
-              nunc quam ac
+              Найдите свою идеальную квартиру в наших современных жилых
+              комплексах.
             </p>
             <ul className="footer__socials">
               <li className="footer__social">
